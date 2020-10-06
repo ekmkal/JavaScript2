@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #F3A433;
+}
+
+.container{
+    background-color: #FFFFFF;
+    width: 50rem;
+    margin-top: 10rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3rem 4rem;
+}
+
+.quote-wrapper{
+    color: #F3A433;
+    min-height: 4rem;
+    text-align: justify;
+}
+
+.quote-wrapper i{
+    font-size: 3rem;
+    float: left;
+    margin-right: 1rem;
+}
+
+#quote{
+    font-size: 1.75rem;
+    padding-top: 1rem;
+}
+
+.author-wrapper{
+    height: 3rem;
+    margin-top: 1rem;
+}
+
+#author{
+    color: #F3A433;
+    font-weight: lighter;
+    font-size: 1.5rem;
+    float: right;
+}
+
+.footer{
+    height: 4rem;
+}
+
+.footer a{
+    background-color: #F3A433;
+    color: #FFFFFF;
+    float: left;
+    font-size: 1.25rem;
+    padding: 1rem;
+    margin-right: .5rem;
+}
+
+.newQuoteButton{
+    background-color: #F3A433;
+    color: #FFFFFF;
+    font-size: 1.25rem;
+    float: right;
+    padding: 1rem;
+    border: none;
+}
+
+.below-box{
+    background-color: #FFFFFF;
+    width: 20rem;
+    height: 3rem;
+    margin-top: .2rem;
+    margin-left: auto;
+    margin-right: auto;
+}

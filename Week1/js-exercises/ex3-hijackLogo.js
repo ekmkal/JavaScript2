@@ -12,8 +12,13 @@
 
  */
 
+'use strict';
+
 function hijackGoogleLogo() {
   // your code goes in here
+  const logoGoogle = document.querySelector('#hplogo');
+  logoGoogle.src = 'https://www.hackyourfuture.dk/static/logo-dark.svg';
+  logoGoogle.srcset = 'https://www.hackyourfuture.dk/static/logo-dark.svg';
 }
 
 hijackGoogleLogo();

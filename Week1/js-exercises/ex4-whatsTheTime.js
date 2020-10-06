@@ -11,8 +11,20 @@
 
  */
 
+'use strict';
+
 function displayCurrentTime() {
   // your code goes in here
-}
+  const currentDate = new Date();
+
+  const hours = currentDate.getHours();
+  const minutes = currentDate.getMinutes();
+  const seconds = currentDate.getSeconds();
+
+  const currentTime = `${hours}:${minutes}:${seconds}\n`;
+  document.body.append(currentTime);
+};
 
 setInterval(displayCurrentTime, 1000);
+
+window.addEventListener('load', displayCurrentTime());
