@@ -15,30 +15,20 @@
 'use strict';
 
 const catGif = document.querySelector('img');
-const interval = setInterval(catWalk, 50);
-
 // 'step' for adding 10 px to the left property
-const step = 10;
-
-// 'stopPoint' is where the cat stops
-const stopPoint = window.innerWidth / 2 - catGif.width + (catGif.width % step);
+const catStep = 10;
 
 catGif.style.left = '0px';
 
-// I tried to define a recursive function, but the function isn't working with the same rhytym.
 function catWalk(){
     const currentPosition = parseInt(catGif.style.left);
-    catGif.style.left = (currentPosition + step) + 'px';
-    if(currentPosition > window.innerWidth - catGif.width){
-        catGif.style.left = '0px';
-    };
-    // After the second stop, function accelerates and 'clearInterval(interval)' doesn't work, I think.
-    if(currentPosition === stopPoint){
-        stopCat();
+    catGif.style.left = (currentPosition + catStep) + 'px';
+    if(currentPosition >= (window.innerWidth / 2 - catGif.width / 2)){
+        stopCatWalk();
     };
 };
 
-function stopCat(){
+function stopCatWalk(){
     clearInterval(interval);
     catGif.src = 'https://media.tenor.com/images/b413d00f7c04ec226e2ffda388d322ae/tenor.gif';
     catGif.style.width = '15rem';
@@ -47,7 +37,15 @@ function stopCat(){
 
 function continueCatWalk(){
     catGif.src = 'http://www.anniemation.com/clip_art/images/cat-walk.gif';
-    setInterval(catWalk, 50);
+    const intervalOfContinue = setInterval(function(){
+        const currentPositionAfterMid = parseInt(catGif.style.left);
+        catGif.style.left = (currentPositionAfterMid + catStep) + 'px';
+        if(currentPositionAfterMid > window.innerWidth){
+            clearInterval(intervalOfContinue);
+            catGif.style.left = '0px';
+            interval = setInterval(catWalk, 50);
+        };
+    }, 50);
 };
 
-catWalk();
+let interval = setInterval(catWalk, 50);

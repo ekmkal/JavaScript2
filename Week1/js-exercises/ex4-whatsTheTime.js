@@ -21,10 +21,10 @@ function displayCurrentTime() {
   const minutes = currentDate.getMinutes();
   const seconds = currentDate.getSeconds();
 
-  const currentTime = `${hours}:${minutes}:${seconds}\n`;
-  document.body.append(currentTime);
+  const currentTime = `${hours}:${minutes}:${seconds}`;
+  document.body.innerHTML = currentTime;
 };
 
 setInterval(displayCurrentTime, 1000);
 
-window.addEventListener('load', displayCurrentTime());
+window.addEventListener('load', displayCurrentTime);

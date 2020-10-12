@@ -14,9 +14,14 @@
 
  document.body.style.fontFamily = "Arial, sans-serif";
 
- const myNick = document.querySelector('#nickname').textContent = 'ekmel';
- const myFavFood = document.querySelector('#fav-food').textContent = 'pizza';
- const myHometown = document.querySelector('#hometown').textContent = 'Amsterdam';
+ const myNick = document.querySelector('#nickname');
+ myNick.innerHTML = 'ekmel';
+
+ const myFavFood = document.querySelector('#fav-food');
+ myFavFood.innerHTML = 'pizza';
+ 
+ const myHometown = document.querySelector('#hometown');
+ myHometown.innerHTML = 'Amsterdam';
 
  for (const liElement of document.getElementsByTagName('li')){
     liElement.className = 'list-item';
