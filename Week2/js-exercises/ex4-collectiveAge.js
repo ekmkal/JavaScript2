@@ -8,9 +8,22 @@
  Avoid using for loop or forEach.
  */
 
+'use strict';
+
 function collectiveAge(people) {
   // return the sum of age for all the people
-}
+  const totalAgeOfMembers = people.reduce(function(total, number){
+    return total + number;
+  }, 0);
+  return totalAgeOfMembers;
+};
+
+function collectiveMembers(listOfPeople){
+  const ages = listOfPeople.map(ageOfMember => ageOfMember.age);
+  const total = collectiveAge(ages);
+  console.log("The collective age of the HYF team is: " + total);
+  return total;
+};
 
 const hackYourFutureMembers = [{
     name: 'Wouter',

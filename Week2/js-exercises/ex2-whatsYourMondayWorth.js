@@ -11,10 +11,26 @@
 
  */
 
+'use strict';
 
 function dayWorth(tasks, hourlyRate) {
   // put your code in here, the function does returns a euro formatted string
-}
+  // Checking if duration is a number or not
+  const condition = tasks.every(function(task){
+    return typeof task.duration === 'number';
+  });
+
+  if(condition){
+    // Converting minutes to hours
+    const durationTime = tasks.map(taskDuration => taskDuration.duration * (1 / 60));
+    // Accumulating total hours
+    const totalDuration = durationTime.reduce(function(total, hourlyDuration){
+      return total + hourlyDuration;
+    }, 0);
+    const dailyRate = totalDuration * hourlyRate;
+    return Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(dailyRate);
+  };
+};
 
 const mondayTasks = [{
     name: 'Daily standup',
@@ -34,5 +50,5 @@ const mondayTasks = [{
   },
 ];
 
-console.log(dayWorth(mondayTasks, 25))
-console.log(dayWorth(mondayTasks, 13.37))
+console.log(dayWorth(mondayTasks, 25));
+console.log(dayWorth(mondayTasks, 13.37));
