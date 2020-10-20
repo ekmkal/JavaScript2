@@ -29,8 +29,35 @@ Don't you just love the thrill of the lottery? What if I told you we can make ou
 function threeFive(startIndex, stopIndex, threeCallback, fiveCallback) {
   const numbers = [];
   // make array
+  for (let i = startIndex; i <= stopIndex; i++ ){
+    numbers.push(i);
+  };
   // start at beginning of array and check if you should call threeCallback or fiveCallback or go on to next
-}
+  numbers.map(function(number){
+    switch (true) {
+      case (number % 3 === 0 && number % 5 === 0):
+        threeCallback();
+        fiveCallback();
+        break;
+      case (number % 3 === 0):
+        threeCallback();
+        break;
+      case (number % 5 === 0):
+        fiveCallback();
+        break;
+      default:
+        break;
+    };
+  });
+};
+
+function sayThree(){
+  console.log("say three");
+};
+
+function sayFive(){
+  console.log("say five");
+};
 
 threeFive(10, 15, sayThree, sayFive);
 

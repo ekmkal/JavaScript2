@@ -19,3 +19,8 @@ const x = (function () {
 })();
 
 x();
+
+// The 'a' variable re-assigned in the function scope, so its value is 12 now.
+// The 'x' variable stores the IIFE function's return value.
+// When x() invoked, closure function checks for 'a' variable and finds it in the parent scope.
+// It shows an alert message "12" in the page.
